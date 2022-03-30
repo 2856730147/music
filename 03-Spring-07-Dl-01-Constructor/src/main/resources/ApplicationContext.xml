@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<bean id="car" class="com.lh.entity.Car">
+    <constructor-arg name="speed"  type="java.lang.Float" value="100"/>
+    <constructor-arg name="color" type="java.lang.String" value="pink"/>
+</bean>
+    <bean id="person" class="com.lh.entity.Person">
+        <constructor-arg name="name" value="李豪" type="java.lang.String"/>
+        <constructor-arg name="age" value= '22' type="java.lang.Byte"/>
+        <constructor-arg name="car" ref="car" type="com.lh.entity.Car"/>
+    </bean>
+</beans>

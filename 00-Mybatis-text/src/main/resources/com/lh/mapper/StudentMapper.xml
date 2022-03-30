@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lh.dao.AccountDao">
+    <select id="Select" resultType="com.lh.pojo.Student">
+        select * from student
+    </select>
+    <insert id="add" >
+        insert into student(name,age,gender,info)values ('哈巴',12,'男','单位签订')
+    </insert>
+    <delete id="Delete">
+        delete from  student where id=7;
+    </delete>
+<select id="testLimit" parameterType="map" resultType="com.lh.pojo.Student">
+    select *from  student limit #{no},#{size}
+</select>
+    <select id="select" resultMap="studentUser">
+        select s.id sid,u.username uuname,s.age sage,s.gender sgen
+        from dev01.student s,dev01.user u
+        where u.id=s.id
+    </select>
+    <resultMap id="studentUser" type="Student">
+        <result property="id" column="sid"/>
+        <result property="age" column="sage"/>
+        <result property="gender" column="sgen"/>
+        <result property="info" column="info"/>
+        <association property="user" javaType="User">
+            <result property="username" column="uuname"/>
+        </association>
+    </resultMap>
+</mapper>

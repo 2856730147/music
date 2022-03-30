@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lh.dao.EmployeeDao">
+    <resultMap id="fidAllMap" type="com.lh.entity.Employee">
+        <id column="emp_id" property="id"/>
+        <result column="emp_name" property="name"/>
+        <association property="department" javaType="com.lh.entity.Department">
+            <result column="dept_id" property="id"/>
+            <result column="dept_name" property="name"/>
+        </association>
+    </resultMap>
+    <select id="employees" resultMap="fidAllMap">
+        select * from employee
+        inner join department d
+            on employee.dept_id=d.dept_id
+    </select>
+    <resultMap id="accountMap" type="com.lh.entity.Account">
+        <id column="t_id" property="id"/>
+        <result column="t_name" property="username"/>
+        <result column="t_pwd" property="password"/>
+    </resultMap>
+    <select id="account" resultMap="accountMap">
+        select *from t_account
+    </select>
+</mapper>

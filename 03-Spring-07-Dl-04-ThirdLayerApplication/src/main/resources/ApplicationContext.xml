@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<bean id="user" class="com.lh.entity.User"/>
+<bean id="userConroller" class="com.lh.controller.UserConroller">
+    <property name="userService" ref="userService"/>
+</bean>
+    <bean id="userDao" class="com.lh.dao.impl.UserDaoImpl"/>
+    <bean id="userDaoMysql" class="com.lh.dao.impl.UserDaoMysqlImpl"/>
+    <bean id="userService"  class="com.lh.service.impl.UserServiceImpl">
+        <property name="userDao" ref="userDaoMysql"/>
+    </bean>
+</beans>

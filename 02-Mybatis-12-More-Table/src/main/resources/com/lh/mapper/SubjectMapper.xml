@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lh.dao.SubjectDao">
+    <resultMap id="SelectAll" type="com.lh.entity.Student">
+    <id column="id" property="id"/>
+    <result column="name" property="name"/>
+    <result column="age" property="age"/>
+    <result column="gender" property="gender"/>
+    <result column="birthday" property="birthday"/>
+    <result column="info" property="info"/>
+    </resultMap>
+
+
+    <resultMap id="findAllMap" type="com.lh.entity.Subject">
+       <id column="sub_id" property="id"/>
+       <result column="sub_name" property="name"/>
+       <collection resultMap="SelectAll"  property="students" javaType="List" ofType="com.lh.entity.Student">
+<!--           <id column="id" property="id"/>-->
+<!--           <result column="name" property="name"/>-->
+<!--           <result column="age" property="age"/>-->
+<!--           <result column="gender" property="gender"/>-->
+<!--           <result column="birthday" property="birthday"/>-->
+<!--           <result column="info" property="info"/>-->
+       </collection>
+   </resultMap>
+    <select id="subject" resultMap="findAllMap">
+        select stu.*,sub.id sub_id,sub.name sub_name from subject sub
+        inner join student_ref_subject srs
+        on srs.sub_id=sub.id
+        inner join  student stu
+        on stu.id=srs.sub_id
+    </select>
+</mapper>
