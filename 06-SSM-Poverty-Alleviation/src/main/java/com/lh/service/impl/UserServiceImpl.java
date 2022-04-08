@@ -90,4 +90,36 @@ public class UserServiceImpl implements UserService {
         }
         return vo;
     }
+
+    @Override
+    public ResultVo update(User user) {
+        int affectedRows = userMapper.updateByPrimaryKeySelective(user);
+        ResultVo vo;
+        if (affectedRows>0){
+//            修改完成后，再重新查询一次，保证返回给前端的是修改后的结果
+            user=userMapper.selectByPrimaryKey(user.getId());
+
+            vo=new ResultVo(1000,"修改用户成功",true,user);
+        }else {
+            vo=new ResultVo(5000,"修改用户失败",false,null);
+
+        }
+        return vo;
+    }
+
+    @Override
+    public ResultVo delete(long id) {
+        int affectedRows = userMapper.deleteByPrimaryKey(id);
+        ResultVo vo;
+
+        if (affectedRows>0){
+//            修改完成后，再重新查询一次，保证返回给前端的是修改后的结果
+
+            vo=new ResultVo(1000,"删除用户成功",true,null);
+        }else {
+            vo=new ResultVo(5000,"删除用户失败",false,null);
+
+        }
+        return vo;
+    }
 }

@@ -7,4 +7,8 @@ public interface UserService {
     ResultVo getList(Integer pageNum, Integer pageSize, Long id);
 
     ResultVo add(User user);
+
+    ResultVo update(User user);
+
+    ResultVo delete(long id);
 }

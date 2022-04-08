@@ -6,6 +6,8 @@ import com.lh.vo.ResultVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.ResultSet;
+
 @RestController
 @RequestMapping("user")
 public class UserController {
@@ -24,7 +26,11 @@ public class UserController {
         return userService.add(user);
     }
     @PostMapping("update")
-    public ResultVo update(){
-        return null;
+    public ResultVo update(@RequestBody User user){
+        return userService.update(user);
+    }
+    @GetMapping("delete")
+    public  ResultVo delete(@RequestParam long id){
+        return  userService.delete(id);
     }
 }
