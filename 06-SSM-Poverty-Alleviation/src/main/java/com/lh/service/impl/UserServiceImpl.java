@@ -113,7 +113,7 @@ public class UserServiceImpl implements UserService {
         ResultVo vo;
 
         if (affectedRows>0){
-//            修改完成后，再重新查询一次，保证返回给前端的是修改后的结果
+//
 
             vo=new ResultVo(1000,"删除用户成功",true,null);
         }else {
