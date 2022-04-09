@@ -3,6 +3,8 @@ package com.lh.dao;
 import com.lh.entity.Poor;
 import com.lh.entity.PoorExample;
 import com.lh.entity.PoorWithBLOBs;
+
+import java.util.Date;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -34,4 +36,6 @@ public interface PoorMapper {
     int updateByPrimaryKeyWithBLOBs(PoorWithBLOBs record);
 
     int updateByPrimaryKey(Poor record);
+
+    Integer click(Long id, Date lastClickTime);
 }
