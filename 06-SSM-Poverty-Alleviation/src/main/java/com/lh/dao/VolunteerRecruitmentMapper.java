@@ -2,6 +2,8 @@ package com.lh.dao;
 
 import com.lh.entity.VolunteerRecruitment;
 import com.lh.entity.VolunteerRecruitmentExample;
+
+import java.util.Date;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -33,4 +35,6 @@ public interface VolunteerRecruitmentMapper {
     int updateByPrimaryKeyWithBLOBs(VolunteerRecruitment record);
 
     int updateByPrimaryKey(VolunteerRecruitment record);
+    //点击量加一
+    Integer click(@Param("id") Long id,@Param("lastClickTime") Date lastClickTime);
 }
