@@ -13,7 +13,7 @@ public class PoorController {
     @Autowired
     private PoorService poorService;
 
-    @PostMapping("list")
+    @GetMapping("getlist")
     public ResultVo getlist(@RequestParam(value = "pageNum", defaultValue = "1")Integer pageNum,
                             @RequestParam(value = "pageSize",defaultValue = "3")Integer pageSize,
                             Long id){
@@ -28,7 +28,7 @@ public class PoorController {
         return poorService.update(poorWithBLOBs);
     }
     @GetMapping("delete")
-    public ResultVo delete(Long id ){
+    public ResultVo delete(@RequestParam Long id ){
         return poorService.delete(id);
     }
     @PostMapping("click")

@@ -15,7 +15,9 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+/**
+ * 的增、删、改、查
+ */
 @Service
 public class PoorServiceImpl implements PoorService {
 
@@ -40,12 +42,18 @@ public class PoorServiceImpl implements PoorService {
                 dataVo = new DataVo<>(0L, lists, pageNum, pageSize);
                 resultVo = new ResultVo(2342, "没有查到贫困户", false, dataVo);
             } else {
-//                查到用户扔到集合里
-                click(poorWithBLOBs.getId(), null);
+              // 如果是查询单个,那么点击量加1
+                click(poorWithBLOBs.getId(),null);
+
                 poorWithBLOBs.setClickNum(poorWithBLOBs.getClickNum()+1);
+
                 lists.add(poorWithBLOBs);
+
+
+
                 dataVo = new DataVo<>(1L, lists, pageNum, pageSize);
-                resultVo = new ResultVo(2342, "查到贫困户", true, dataVo);
+
+                resultVo= new ResultVo(1212,"查询成功",true,dataVo);
             }
         } else {
 //            开启分页

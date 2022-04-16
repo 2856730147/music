@@ -7,14 +7,22 @@ import com.lh.entity.User;
 import com.lh.service.UserService;
 import com.lh.vo.DataVo;
 import com.lh.vo.ResultVo;
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.WebResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
+/**
+ * 用户的增、删、改、查
+ */
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
@@ -122,4 +130,6 @@ public class UserServiceImpl implements UserService {
         }
         return vo;
     }
+
+
 }

@@ -140,7 +140,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.lh.entity.PoorWithBLOBs">
+  <insert id="insert" keyProperty="id" useGeneratedKeys="true" parameterType="com.lh.entity.PoorWithBLOBs">
     insert into poor (id, create_time, sn, 
       member, number, address, 
       cover, income, username, 

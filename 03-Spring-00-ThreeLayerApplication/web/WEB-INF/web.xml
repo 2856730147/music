@@ -5,7 +5,7 @@
          version="4.0">
     <servlet>
         <servlet-name>userController</servlet-name>
-        <servlet-class>com.lh.controller.UserController</servlet-class>
+        <servlet-class>com.lh.com.lh.controller.UserController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>userController</servlet-name>

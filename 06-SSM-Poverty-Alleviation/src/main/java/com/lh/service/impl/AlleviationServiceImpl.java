@@ -14,11 +14,16 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * 扶贫的增、删、改、查
+ */
 @Service
 public class AlleviationServiceImpl implements AlleviationService {
     @Autowired
     private AlleviationMapper alleviationMapper;
-
+    /**
+     *  查询、分页查询、id查询
+     */
     @Override
     public ResultVo getlist(Integer pageNum, Integer pageSize, Long id) {
 //        返回给前端信息
@@ -74,7 +79,10 @@ public class AlleviationServiceImpl implements AlleviationService {
 
         return resultVo;
     }
-
+/**
+ * 添加方法
+ * 添加没有时间就自动补当前时间
+ */
     @Override
     public ResultVo add(Alleviation alleviation) {
         ResultVo vo;
@@ -95,6 +103,9 @@ public class AlleviationServiceImpl implements AlleviationService {
         return vo;
     }
 
+    /**
+     * 通过id来加1操作
+     */
     @Override
     public ResultVo click(Long id, Date lastClickTime) {
         if (lastClickTime ==null){
@@ -114,6 +125,9 @@ public class AlleviationServiceImpl implements AlleviationService {
         return vo;
     }
 
+    /**
+     * 修改操作
+     */
     @Override
     public ResultVo update(Alleviation alleviation) {
         ResultVo vo;
@@ -130,6 +144,9 @@ public class AlleviationServiceImpl implements AlleviationService {
         return vo;
     }
 
+    /**
+     *删除操作
+     */
     @Override
     public ResultVo delete(Long id) {
         ResultVo vo;

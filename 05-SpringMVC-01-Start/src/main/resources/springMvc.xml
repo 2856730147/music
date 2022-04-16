@@ -11,5 +11,5 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 <!--    扫描指定包下的路径-->
-    <context:component-scan base-package="com.lh.controller"/>
+    <context:component-scan base-package="com.lh.com.lh.controller"/>
 </beans>

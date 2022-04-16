@@ -5,7 +5,10 @@ import com.lh.service.UserService;
 import com.lh.vo.ResultVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.imageio.IIOException;
+import java.io.IOException;
 import java.sql.ResultSet;
 
 @RestController
@@ -33,4 +36,9 @@ public class UserController {
     public  ResultVo delete(@RequestParam long id){
         return  userService.delete(id);
     }
+
 }
+
+
+
+

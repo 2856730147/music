@@ -14,7 +14,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * 扶贫的增、删、改、查
+ */
 @Service
 public class CarouselServiceImpl implements CarouselService {
     @Autowired

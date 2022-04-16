@@ -13,7 +13,9 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+/**
+ * 志愿者的增、删、改、查
+ */
 @Service
 public class VolunteerServiceImpl implements VolunteerService {
 
