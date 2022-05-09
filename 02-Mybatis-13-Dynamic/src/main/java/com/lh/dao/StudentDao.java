@@ -2,7 +2,6 @@ package com.lh.dao;
 
 import com.lh.entity.Student;
 import org.apache.ibatis.annotations.Param;
-import org.junit.Test;
 
 import java.util.List;
 

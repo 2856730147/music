@@ -1,8 +1,6 @@
 package com.lh.text;
 
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import com.lh.dao.StudentDao;
 import com.lh.entity.Student;
 import com.lh.utils.MyBatisUtils;

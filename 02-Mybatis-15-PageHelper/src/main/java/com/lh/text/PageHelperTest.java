@@ -6,15 +6,8 @@ import com.github.pagehelper.PageInfo;
 import com.lh.dao.StudentDao;
 import com.lh.entity.Student;
 import com.lh.utils.MyBatisUtils;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.Reader;
 import java.util.List;
 
 public class PageHelperTest {

@@ -1,0 +1,33 @@
+#配置数据源
+spring:
+  mvc:
+    hiddenmethod:
+      filter:
+#        开启隐藏方法过滤器，默认是false
+        enabled: true
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/dev01?useSSL=false&useUnicode=true&characterEncoding=utf8&serverTimeZone=GTM+8
+    username: root
+    password: 123456
+#Mybatis配置
+mybatis:
+  # mybatis-config.xml配置文件所在的路径
+  #  config-location:
+  # 扫描指定路径下的映射文件（sql）
+  mapper-locations: classpath:com/lh/mapper/*.xml
+  type-aliases-package: com.lh.entity
+  configuration:
+#    二级缓存
+    cache-enabled: true
+    #日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    #主键回填
+    use-generated-keys: true
+    #懒加载
+    lazy-loading-enabled: true
+    #积极加载
+    aggressive-lazy-loading: false
+    #驼峰命名
+    map-underscore-to-camel-case: true

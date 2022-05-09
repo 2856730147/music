@@ -17,6 +17,13 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+
+    @PostMapping("login")
+    public ResultVo  login(@RequestParam  String username,
+                           @RequestParam String password){
+        return userService.login(username,password);
+    }
+
 //                       必须传递一个值，要不默认是defaultValue里的值
     @GetMapping("getlist")
     public ResultVo GetList(@RequestParam(value = "pageNum",defaultValue = "1")Integer pageNum,

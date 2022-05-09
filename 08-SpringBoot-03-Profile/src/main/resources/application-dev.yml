@@ -1,0 +1,9 @@
+#开发环境
+server:
+  port: 8080
+  servlet:
+    context-path: /dev
+
+student:
+  name: 马克马克
+  age: 30

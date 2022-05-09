@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>测试标准选择表达式</title>
+</head>
+<body>
+    <table align="center" th:object="${person}">
+        <tr>
+            <td>编号</td>
+            <td><p th:text="*{id}"></td>
+        </tr>
+        <tr>
+            <td>姓名</td>
+            <td><p th:text="*{name}"></td>
+        </tr>
+        <tr>
+            <td>年龄</td>
+            <td><p th:text="*{age}"></td>
+        </tr>
+
+    </table>
+</body>
+</html>

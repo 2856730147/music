@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>测试标准变量表达式</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>编号</td>
+            <td><p th:text="${user.id}"></td>
+        </tr>
+        <tr>
+            <td>年龄</td>
+            <td><p th:text="${user.age}"></td>
+        </tr>
+        <tr>
+            <td>性别</td>
+            <td><p th:text="${user.gender}"></td>
+        </tr>
+        <tr>
+            <td>信息</td>
+            <td><p th:text="${user.info}"></td>
+        </tr>
+        <tr>
+            <td>姓名</td>
+            <td><p th:text="${user.name}"></td>
+        </tr>
+        <tr>
+            <td>年龄</td>
+            <td><p th:text="${age}"></td>
+        </tr>
+        <tr>
+            <td>汽车品牌</td>
+            <td><p th:text="${user.car.brand}"></td>
+        </tr>
+        <tr>
+            <td>汽车颜色</td>
+            <td><p th:text="${user.car.color}"></td>
+        </tr>
+
+        <tr>
+            <td>已婚</td>
+            <td><p th:text="${married}"></td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,7 +1,6 @@
 package com.lh.dao;
 
 import com.lh.entity.Student;
-import com.lh.entity.User;
 
 import java.util.List;
 

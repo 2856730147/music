@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+    <!--    扫描指定包下的路径-->
+    <context:component-scan base-package="com.lh.controller"/>
+
+    <mvc:annotation-driven/>
+<!--    导入业务层配置文件-->
+    <import resource="classpath:applicationContext.xml"/>
+<!--事务-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <tx:annotation-driven/>
+
+    <mvc:default-servlet-handler/>
+
+<!--    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">-->
+<!--        &lt;!&ndash;上传文件的最大大小(字节)&ndash;&gt;-->
+<!--        <property name="maxUploadSize" value="50000000" />-->
+<!--        &lt;!&ndash;缓存&ndash;&gt;-->
+<!--        <property name="maxInMemorySize" value="4096" />-->
+<!--        &lt;!&ndash;默认的编码集&ndash;&gt;-->
+<!--        <property name="defaultEncoding" value="defaultEncoding"/>-->
+<!--        &lt;!&ndash;单个文件的最大大小(字节)&ndash;&gt;-->
+<!--        <property name="maxUploadSizePerFile" value="2000000"/>-->
+<!--    </bean>-->
+</beans>

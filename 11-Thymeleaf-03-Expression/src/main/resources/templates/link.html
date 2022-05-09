@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>测试标准链接表达式</title>
+</head>
+<body>
+   <a th:href="@{url}">测试当前路径</a>
+    <br>
+   <a th:href="@{/url}">测试根路径</a>
+   <br>
+   <a th:href="@{./url}">测试相对于当前路径</a>
+   <br>
+   <a th:href="@{../url}">测试上级路径</a>
+   <br>
+   <a th:href="@{http://www.baidu.com}">测试外部绝对路径</a>
+   <br>
+</body>
+</html>

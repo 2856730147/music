@@ -1,0 +1,24 @@
+server:
+  port: 8848
+  servlet:
+    context-path: /yml
+
+student:
+  name: "完全颠覆"                     #字符串
+  age: 22                             #数组
+  gender: '男'                        #字符串
+  married: false                      #布尔
+  birthday: 2012/12/12 12:12:12     #日期
+  hobby: ["唱","天宫","rep","时代"]    #数组
+  food:                               #集合
+    - 带我去
+    - 大青蛙对
+    - 父亲二分
+    - 潜伏期
+  score: {"java":100,"mysql":5,"sql":23}  #Map
+  car:                                  #对象
+    brand: BYD
+    color: 白
+
+person:
+  username:"马克马克"

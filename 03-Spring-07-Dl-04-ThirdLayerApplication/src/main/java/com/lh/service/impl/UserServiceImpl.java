@@ -1,8 +1,6 @@
 package com.lh.service.impl;
 
 import com.lh.dao.UserDao;
-import com.lh.dao.impl.UserDaoImpl;
-import com.lh.dao.impl.UserDaoMysqlImpl;
 import com.lh.entity.User;
 import com.lh.service.UserService;
 

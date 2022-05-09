@@ -3,7 +3,6 @@ package com.lh.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.lh.dao.PoorMapper;
-import com.lh.entity.Poor;
 import com.lh.entity.PoorWithBLOBs;
 import com.lh.service.PoorService;
 import com.lh.vo.DataVo;
@@ -11,7 +10,6 @@ import com.lh.vo.ResultVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

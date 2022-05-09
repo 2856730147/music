@@ -3,7 +3,6 @@ package com.lh.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.lh.dao.CollectionMapper;
-import com.lh.entity.Carousel;
 import com.lh.entity.Collection;
 import com.lh.service.CollectionService;
 import com.lh.vo.DataVo;

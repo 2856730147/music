@@ -1,24 +1,20 @@
 package com.lh.service.impl;
 
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.JWTCreator;
+import com.auth0.jwt.algorithms.Algorithm;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.lh.dao.UserMapper;
 import com.lh.entity.User;
+import com.lh.entity.UserExample;
 import com.lh.service.UserService;
 import com.lh.vo.DataVo;
 import com.lh.vo.ResultVo;
-import com.sun.jersey.api.client.Client;
-import com.sun.jersey.api.client.WebResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * 用户的增、删、改、查
@@ -130,6 +126,97 @@ public class UserServiceImpl implements UserService {
         }
         return vo;
     }
+
+    @Override
+    public ResultVo login(String username, String password) {
+        ResultVo vo = new ResultVo();
+
+        vo.setCode(-1);
+        vo.setMessage("登录失败，当前用户名不存在");
+        vo.setSuccess(false);
+        vo.setData(null);
+
+        UserExample example = new UserExample();
+
+        UserExample.Criteria criteria = example.createCriteria();
+
+        criteria.andUsernameEqualTo(username);
+
+        List<User> users = userMapper.selectByExample(example);
+
+        // 能查出来说明用户名是存在的
+        if (users.size() > 0) {
+            User user = users.get(0);
+
+            // 如果密码相同
+            if (user.getPassword().equals(password)) {
+                vo.setSuccess(true);
+                vo.setMessage("登录成功！");
+                vo.setCode(200);
+
+                // 密码不要传给前端
+                user.setPassword(null);
+
+                // token - json web token
+
+                // 盐值的存储应该存到缓存服务器中-Redis
+                // 可以把盐值作为载荷直接发送给前端，每次我们获取到token后对其进行解析
+                // 其实这是很不安全的，但是没办法，暂时这样用
+                // 盐值
+                String salt = String.valueOf((int) ((Math.random() * 9 + 1) * 100000));
+
+                // 头部
+                Map<String, Object> headers = new HashMap<>();
+
+                headers.put("alg", "HS256");
+                headers.put("typ", "JWT");
+
+                // 获取token
+                String token = JWT.create()
+                        .withHeader(headers)
+                        // 主题
+                        .withSubject("登录权限验证")
+                        // 签发人
+                        .withIssuer("admin")
+                        // 签发日期
+                        .withIssuedAt(new Date())
+                        // 过期时间
+                        // 设置稍微长一点，后面有机会讲token续签的时候再改
+                        .withExpiresAt(new Date(System.currentTimeMillis() + 1000 * 60 * 30))
+                        .withClaim("id", user.getId())
+                        .withClaim("username", username)
+                        .withClaim("salt", salt)
+                        // 使用盐值进行签发生成jwt
+                        .sign(Algorithm.HMAC256(salt));
+
+                Map<String, Object> result = new HashMap<>();
+
+                result.put("user", user);
+                result.put("token", token);
+
+                vo.setData(result);
+            } else {
+                vo.setCode(-2);
+                vo.setMessage("登录失败，请输入正确的密码");
+            }
+        }
+
+        return vo;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

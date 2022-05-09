@@ -14,7 +14,7 @@
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx.xsd">
     <!--    扫描指定包下的路径-->
-    <context:component-scan base-package="com.lh.com.lh.controller"/>
+    <context:component-scan base-package="com.lh.controller"/>
 
     <mvc:annotation-driven/>
 <!--    导入业务层配置文件-->
@@ -25,9 +25,20 @@
     </bean>
     <tx:annotation-driven/>
 <!--    跨域-->
-    <mvc:cors>
-        <mvc:mapping path="/**" allowed-origins="*"/>
-    </mvc:cors>
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.lh.interceptor.CrossInterceptor"/>
+        </mvc:interceptor>
+<!--        jwt验证的拦截器-->
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+
+<!--            登录不需要验证-->
+            <mvc:exclude-mapping path="/user/login"/>
+            <bean class="com.lh.interceptor.JwtInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <!--上传文件的最大大小(字节)-->
         <property name="maxUploadSize" value="50000000" />

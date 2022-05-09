@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<!--添加thymeleaf的约束，th:*都不会爆红了-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>测试Springboot整合thymeleaf模板</title>
+</head>
+<body>
+<!--h1中没有value属性的，所以我们要使用text属性，并且还需要被thymeleaf识别，就用th:text
+    里面是占位符，我们可以给他传递参数，去替掉里面的内容-->
+    <h1 th:text="${data}" style="color: #ffbb43" align="center">展示数据</h1>
+    <h1 th:text="${data}" style="color: #ffbb43" align="center">展示数据</h1>
+    <h1 th:text="${data}" style="color: #ffbb43" align="center">展示数据</h1>
+    <h1 th:text="${data}" style="color: #ffbb43" align="center">展示数据</h1>
+    <h1 th:text="${data}" style="color: #ffbb43" align="center">展示数据</h1>
+    <h1 style="color: #ffbb43" align="center"><input type="text" th:value="${data}"></h1>
+
+</body>
+</html>

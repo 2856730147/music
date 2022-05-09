@@ -1,0 +1,8 @@
+#测试环境
+server:
+  port: 8848
+  servlet:
+    context-path: /test
+student:
+  name: 我希望下
+  age: 12

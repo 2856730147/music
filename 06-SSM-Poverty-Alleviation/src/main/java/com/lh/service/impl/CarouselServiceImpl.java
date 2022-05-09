@@ -1,11 +1,9 @@
 package com.lh.service.impl;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.lh.dao.CarouselMapper;
 import com.lh.entity.Carousel;
-import com.lh.entity.User;
 import com.lh.service.CarouselService;
 import com.lh.vo.DataVo;
 import com.lh.vo.ResultVo;

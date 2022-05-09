@@ -3,9 +3,7 @@ package com.lh.text;
 
 import com.lh.dao.DepantmentDao;
 import com.lh.dao.EmployeeDao;
-import com.lh.dao.StudentDao;
 import com.lh.entity.Employee;
-import com.lh.entity.Student;
 import com.lh.utils.MyBatisUtils;
 import org.junit.Test;
 

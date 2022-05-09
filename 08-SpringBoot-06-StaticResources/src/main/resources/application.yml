@@ -1,0 +1,9 @@
+
+spring:
+#配置资源下的静态资源路径
+  web:
+    resources:
+      static-locations: classpath:/public/
+      #静态资源的路径访问前缀
+  mvc:
+    static-path-pattern: /hello/**

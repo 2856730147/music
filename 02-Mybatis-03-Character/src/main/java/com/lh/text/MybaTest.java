@@ -2,7 +2,6 @@ package com.lh.text;
 
 import com.lh.dao.StudentDao;
 import com.lh.entity.Student;
-import com.lh.entity.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;

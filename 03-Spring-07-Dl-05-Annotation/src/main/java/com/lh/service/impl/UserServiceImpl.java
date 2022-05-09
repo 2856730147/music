@@ -3,9 +3,6 @@ package com.lh.service.impl;
 import com.lh.dao.UserDao;
 import com.lh.entity.User;
 import com.lh.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

@@ -1,7 +1,6 @@
 package com.lh.text;
 
 import com.lh.controller.UserConroller;
-import com.lh.dao.UserDao;
 import com.lh.entity.User;
 import com.lh.service.UserService;
 import org.junit.Test;
